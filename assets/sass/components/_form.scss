@@ -1,0 +1,14 @@
+.form-control:hover,
+.form-control:focus,
+.form-control:focus-visible,
+.form-control:visited,
+.form-control:focus-within,
+.form-select:hover,
+.form-select:focus,
+.form-select:focus-visible,
+.form-select:visited,
+.form-select:focus-within {
+    outline: 0;
+    box-shadow: none;
+    border-color: inherit;
+}

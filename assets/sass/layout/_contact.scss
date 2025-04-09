@@ -1,0 +1,77 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions";
+@use "../abstracts/mixins" as *;
+.contact-section {
+  background-color: $bg-background;
+  padding-bottom: functions.to-clamp(50px, 90px);
+
+  .box {
+    box-shadow: rgba(143, 155, 166, 0.08) 0px 12px 24px -4px;
+    background-color: $color-white;
+    padding: functions.to-clamp(15px, 20px);
+    text-align: center;
+    height: 100%;
+    svg {
+      stroke: $color-primary-v1;
+      width: functions.to-clamp(20px, 30px);
+    }
+    .h6 {
+      @include font-weight(500);
+    }
+    address,
+    .phone,
+    .phone a,
+    .email,
+    .email a {
+      color: $color-black;
+      font-size: functions.to-clamp(14px, 16px);
+      line-height: functions.to-clamp(20px, 22px);
+      overflow-wrap: break-word;
+    }
+    a:hover {
+      color: $color-primary;
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .email-form {
+    box-shadow: rgba(143, 155, 166, 0.08) 0px 12px 24px -4px;
+    background-color: $color-white;
+    padding: functions.to-clamp(25px, 50px) functions.to-clamp(15px, 30px)
+      functions.to-clamp(25px, 50px);
+    height: 100%;
+    .form-group {
+      .form-control {
+        min-height: functions.to-clamp(40px, 54px);
+        background-color: $color-white;
+        border: 1px solid $border-color;
+        width: 100%;
+        padding-left: 10px;
+        line-height: normal;
+        font-size: functions.to-clamp(13px, 15px);
+        border-radius: 0;
+        &::placeholder {
+          font-size: functions.to-clamp(12px, 14px);
+          color: $dark-desaturated;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+.sent-message {
+  color: green;
+  font-size: functions.to-clamp(12px, 14px);
+}
+.loading {
+  color: orangered;
+  font-size: functions.to-clamp(12px, 14px);
+}
+
+.error-message {
+  color: $color-error;
+  font-size: functions.to-clamp(12px, 14px);
+}

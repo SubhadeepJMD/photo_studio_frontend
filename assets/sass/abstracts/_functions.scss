@@ -1,0 +1,29 @@
+// _functions.scss
+@use "sass:math";
+
+// px to rem
+@function toRem($pxValue) {
+  @return math.div($pxValue, 16px) * 1rem;
+}
+
+// clamp function
+$desktop-view: 1440px; // given desktop view design width
+$mobile-view: 575px; // given mobile view design width
+
+@function to-clamp($smallest-size, $largest-size) {
+  $min-width: toRem($mobile-view);
+  $max-width: toRem($desktop-view);
+  $size-at-min-width: toRem($smallest-size);
+  $size-at-max-width: toRem($largest-size);
+  $slope: math.div(
+    $size-at-max-width - $size-at-min-width,
+    $max-width - $min-width
+  );
+  $y-axis: -1 * $min-width * $slope + $size-at-min-width;
+  $return-value: clamp(
+    #{$size-at-min-width},
+    #{$y-axis} + #{$slope} * 100vw,
+    #{$size-at-max-width}
+  );
+  @return $return-value;
+}

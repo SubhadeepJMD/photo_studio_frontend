@@ -1,0 +1,15 @@
+@use "vendors/bootstrap/scss/bootstrap";
+
+@use "abstracts/abstracts.scss";
+
+//base
+@use "base/base";
+
+//components
+@use "components/components";
+
+//layout
+@use "layout/layout";
+
+//pages
+@use "pages/pages";

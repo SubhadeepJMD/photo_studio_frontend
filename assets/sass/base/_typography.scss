@@ -1,0 +1,127 @@
+@use "sass:map";
+@use "../abstracts/functions" as *; // Ensure to-clamp() function is accessible
+@use "../abstracts/variables" as *; // Import variables
+@use "../abstracts/mixins" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+// Base sizes for desktop and mobile
+$min-font-size: 14px; // Minimum size for smaller screens
+$max-font-size: 20px; // Maximum size for larger screens
+
+// Typography map with optimized clamped sizes
+$typography: (
+  "default": (
+    "font-size": to-clamp($min-font-size, $max-font-size),
+    "line-height": to-clamp($min-font-size + 8px, $max-font-size + 10px),
+  ),
+  "h1": (
+    "font-size": to-clamp(32px, 56px),
+    "line-height": to-clamp(40px, 64px),
+  ),
+  "h2": (
+    "font-size": to-clamp(28px, 48px),
+    "line-height": to-clamp(36px, 54px),
+  ),
+  "h3": (
+    "font-size": to-clamp(24px, 40px),
+    "line-height": to-clamp(32px, 48px),
+  ),
+  "h4": (
+    "font-size": to-clamp(20px, 32px),
+    "line-height": to-clamp(28px, 40px),
+  ),
+  "h5": (
+    "font-size": to-clamp(18px, 28px),
+    "line-height": to-clamp(24px, 36px),
+  ),
+  "h6": (
+    "font-size": to-clamp(16px, 24px),
+    "line-height": to-clamp(22px, 32px),
+  ),
+  "p": (
+    "font-size": to-clamp(16px, 22px),
+    "line-height": to-clamp(24px, 32px),
+  ),
+);
+
+// Mixin to apply typography styles
+@mixin apply-typography($element) {
+  font-size: map.get($typography, $element, "font-size");
+  line-height: map.get($typography, $element, "line-height");
+}
+
+// Apply styles to headings
+h1,
+.h1 {
+  @include apply-typography("h1");
+  color: $color-secondary;
+  font-weight: 700;
+}
+h2,
+.h2 {
+  @include apply-typography("h2");
+  color: $color-secondary;
+  font-weight: 700;
+}
+h3,
+.h3 {
+  @include apply-typography("h3");
+  color: $color-secondary;
+  font-weight: 700;
+}
+h4,
+.h4 {
+  @include apply-typography("h4");
+  color: $color-secondary;
+  font-weight: 700;
+}
+h5,
+.h5 {
+  @include apply-typography("h5");
+  color: $color-secondary;
+  font-weight: 700;
+}
+h6,
+.h6 {
+  @include apply-typography("h6");
+  color: $color-secondary;
+  font-weight: 700;
+}
+
+// Apply styles to paragraphs, list items, anchor links, and body
+p,
+li,
+a,
+body {
+  @include apply-typography("p"); // Use "p" styles for consistency
+  color: $color-black;
+}
+
+// Anchor link styles
+a {
+  text-decoration: none;
+  @include display-position(relative);
+  color: $color-primary;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: $color-secondary;
+    top: 100%;
+    left: 0;
+    pointer-events: none;
+    transform-origin: 100% 50%;
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.3s;
+  }
+  &:hover {
+    text-decoration: none; // Accessible hover effect
+    color: $color-secondary;
+    &::before {
+      transform-origin: 0% 50%;
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}

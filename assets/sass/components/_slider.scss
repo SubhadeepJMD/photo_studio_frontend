@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/functions";
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 50px;
+  height: 50px;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  background: $color-primary;
+  @include border-radius(100px);
+  &::after {
+    font-size: functions.to-clamp(18px, 25px);
+    color: $color-white;
+  }
+}

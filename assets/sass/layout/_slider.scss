@@ -1,0 +1,75 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions";
+@use "../abstracts/mixins" as *;
+
+.silder-section {
+  @include background-img(cover, no-repeat, center);
+  @include display-position(relative);
+
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    max-width: 400px;
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+}
+.event-slider-section {
+  background-color: #930000;
+  background-blend-mode: overlay;
+  //   &::before {
+  //     @include display-position(absolute);
+  //     content: "";
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background-color: red;
+  //   }
+
+  .content-areas {
+    color: $color-white;
+    .h3 {
+      color: $color-white;
+    }
+    p {
+      color: $color-white;
+    }
+  }
+}
+
+.wedding-slider-section {
+  background-color: #140202;
+  background-blend-mode: overlay;
+  //   &::before {
+  //     @include display-position(absolute);
+  //     content: "";
+  //     top: 0;
+  //     left: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background-color: red;
+  //   }
+
+  .content-areas {
+    color: $color-white;
+    .h3 {
+      color: $color-white;
+    }
+    p {
+      color: $color-white;
+    }
+  }
+}

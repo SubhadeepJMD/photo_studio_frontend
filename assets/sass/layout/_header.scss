@@ -1,0 +1,67 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/media-query" as *;
+
+.header {
+  @include display-position(absolute);
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 120px;
+  z-index: 9;
+  .logo {
+    @include display-position(relative);
+    left: 0;
+    top: 0;
+    a {
+      &::before {
+        @include display(none);
+      }
+    }
+    .stycky-logo {
+      @include display(none);
+    }
+    .logo-img {
+      img {
+        height: 105px;
+      }
+    }
+  }
+
+  .row {
+    @include display-position(relative);
+    align-items: center;
+  }
+  &.is-sticky {
+    @include display-position(fixed);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    animation: slideDown 0.35s ease-out;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: max-content;
+
+    .row {
+      @include align-items(center);
+      .nav {
+        margin-top: 0;
+      }
+    }
+    .logo {
+      @include display-position(relative);
+      .logo-img {
+        @include display(none);
+      }
+      .stycky-logo {
+        @include display(inline-block);
+        max-width: 50px;
+      }
+    }
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

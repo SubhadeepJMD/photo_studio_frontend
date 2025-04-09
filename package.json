@@ -1,0 +1,16 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "main": "index.js",
+ "scripts": {
+ "build:scss": "sass assets/sass/index.scss assets/css/index.css --style compressed",
+ "watch:scss": "sass --watch assets/sass/index.scss:assets/css/index.css"
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.86.0"
+  }
+}

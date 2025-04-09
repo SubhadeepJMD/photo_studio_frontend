@@ -1,0 +1,62 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/functions";
+@use "../abstracts/mixins" as *;
+@use "../abstracts/media-query" as *;
+.banner {
+  @include display-position(relative);
+  &-image {
+    @include display-position(relative);
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-text {
+    @include display-position(absolute);
+    top: calc(50% + 40px);
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .light-content {
+    .h1 {
+      color: $color-white;
+    }
+  }
+  .banner-text {
+    .h1 {
+      @include display(block);
+      font-size: functions.to-clamp(50px, 70px);
+      line-height: functions.to-clamp(45px, 80px);
+      font-weight: 500;
+      text-transform: capitalize;
+      .small-text {
+        font-size: functions.to-clamp(30px, 40px);
+        line-height: functions.to-clamp(35px, 45px);
+        font-weight: 400;
+        @include display(block);
+      }
+      .big-text {
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+    }
+    p {
+      color: $color-white;
+      font-size: functions.to-clamp(16px, 20px);
+      line-height: functions.to-clamp(24px, 30px);
+      font-weight: 400;
+    }
+    .btn {
+      margin-top: functions.toRem(20px);
+    }
+  }
+  .banner-slider {
+    height: 100vh;
+    @include md-max {
+      height: 500px;
+    }
+  }
+}
